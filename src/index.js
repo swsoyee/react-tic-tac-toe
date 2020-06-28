@@ -2,33 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { calculateWinner, arrTrans } from './module';
-import Square from './atoms/Square.tsx';
-
-class Board extends React.Component {
-    renderSquare(i) {
-        return (
-            <Square
-                value={this.props.squares[i]}
-                onClick={() => this.props.onClick(i)}
-            />
-        );
-    }
-
-    render() {
-        return (
-            <div>
-                {
-                    arrTrans(3, [...Array(9).keys()]).map((line) => (
-                        <div className="board-row">
-                            {line.map((i) => this.renderSquare(i))}
-                        </div>
-                    ))
-                }
-            </div>
-        );
-    }
-}
+import { calculateWinner } from './module';
+import Board from './molecules/Board.tsx';
 
 class Game extends React.Component {
     constructor(props) {
