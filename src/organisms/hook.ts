@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { calculateWinner } from './module';
+import { calculateWinner } from '../module';
 
 const useGame = () => {
     const [history, setHistory] = useState([{
