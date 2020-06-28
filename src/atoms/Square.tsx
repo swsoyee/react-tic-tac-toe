@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Box, Button } from '@material-ui/core';
 
 const Square: React.FC<{
     onClick: () => void,
@@ -6,13 +7,14 @@ const Square: React.FC<{
 }> = (props) => {
     const { onClick, value } = props;
     return (
-        <button
-            type="button"
-            className="square"
-            onClick={onClick}
-        >
-            {value}
-        </button>
+        <Box component="span" m={0}>
+            <Button
+                variant="outlined"
+                onClick={onClick}
+            >
+                {value || '　'}
+            </Button>
+        </Box>
     );
 };
 
