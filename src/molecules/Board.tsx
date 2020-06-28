@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import Square from '../atoms/Square';
 import { arrTrans } from '../module';
@@ -20,6 +20,7 @@ const Board: React.FC<{
     return (
         <div>
             {
+                // @ts-ignore
                 arrTrans(3, [...Array(9).keys()]).map((line:number[]) => (
                     <div className="board-row">
                         {line.map((i) => renderSquare(i))}
