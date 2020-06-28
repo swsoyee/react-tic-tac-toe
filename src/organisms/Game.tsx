@@ -12,7 +12,7 @@ const Game = () => {
     } = useGame();
 
     const moves = history.map((step, move:number) => {
-        const desc = move ? `Go to move #${move}` : 'Go to game start';
+        const desc = move ? `Go to move #${move} (${step.row}, ${step.column})` : 'Go to game start';
         return (
             <li key={move}>
                 <button

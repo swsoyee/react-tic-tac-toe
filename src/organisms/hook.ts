@@ -4,6 +4,8 @@ import { calculateWinner } from '../module';
 const useGame = () => {
     const [history, setHistory] = useState([{
         squares: Array(9).fill(null),
+        row: 0,
+        column: 0,
     }]);
     const [stepNumber, setStepNumber] = useState(0);
     const [xIsNext, setXIsNext] = useState(true);
@@ -19,6 +21,8 @@ const useGame = () => {
         setHistory(
             historyExist.concat([{
                 squares,
+                row: Math.floor(i / 3) + 1,
+                column: (i % 3) + 1,
             }]),
         );
         setStepNumber(historyExist.length);
