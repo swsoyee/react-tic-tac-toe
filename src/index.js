@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 import { calculateWinner } from './module';
-import Board from './molecules/Board.tsx';
+import Board from './molecules/Board';
 
 class Game extends React.Component {
     constructor(props) {
