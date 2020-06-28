@@ -1,4 +1,4 @@
-const calculateWinner = (squares) => {
+export const calculateWinner = (squares) => {
     const lines = [
         [0, 1, 2],
         [3, 4, 5],
@@ -18,4 +18,10 @@ const calculateWinner = (squares) => {
     return null;
 };
 
-export default calculateWinner;
+export const arrTrans = (num, arr) => {
+    const newArr = [];
+    while (arr.length > 0) {
+        newArr.push(arr.splice(0, num));
+    }
+    return newArr;
+};

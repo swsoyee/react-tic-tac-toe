@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import calculateWinner from './module';
+import { calculateWinner, arrTrans } from './module';
 import Square from './atoms/Square.tsx';
 
 class Board extends React.Component {
@@ -18,21 +18,13 @@ class Board extends React.Component {
     render() {
         return (
             <div>
-                <div className="board-row">
-                    {this.renderSquare(0)}
-                    {this.renderSquare(1)}
-                    {this.renderSquare(2)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare(3)}
-                    {this.renderSquare(4)}
-                    {this.renderSquare(5)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare(6)}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
-                </div>
+                {
+                    arrTrans(3, [...Array(9).keys()]).map((line) => (
+                        <div className="board-row">
+                            {line.map((i) => this.renderSquare(i))}
+                        </div>
+                    ))
+                }
             </div>
         );
     }
