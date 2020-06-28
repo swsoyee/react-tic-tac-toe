@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import Button from '@material-ui/core/Button';
+
 import useGame from './hook';
 import Board from '../molecules/Board';
 
@@ -16,14 +18,16 @@ const Game = () => {
         const desc = move ? `Go to move #${move} (${step.row}, ${step.column})` : 'Go to game start';
         return (
             <li key={move}>
-                <button
+                <Button
                     type="button"
+                    variant="contained"
+                    color="primary"
                     onClick={() => jumpTo(move)}
                 >
                     {
                         move === selectedHistory ? <b>{desc}</b> : desc
                     }
-                </button>
+                </Button>
             </li>
         );
     });
