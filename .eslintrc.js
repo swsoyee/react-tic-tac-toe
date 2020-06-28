@@ -23,6 +23,13 @@ module.exports = {
         'react',
         '@typescript-eslint',
     ],
+    settings: {
+        'import/resolver': {
+            node: {
+                extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
+            }
+        },
+    },
     rules: {
         // Indent with 4 spaces
         indent: ['error', 4],
@@ -32,5 +39,15 @@ module.exports = {
         'react/jsx-indent-props': ['error', 4],
         "react/jsx-filename-extension": ['error', { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
         "react/prop-types" : ['off'],
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ]
     },
 };
