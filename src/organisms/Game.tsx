@@ -9,6 +9,7 @@ const Game = () => {
         handleClick,
         jumpTo,
         getStatus,
+        selectedHistory,
     } = useGame();
 
     const moves = history.map((step, move:number) => {
@@ -19,7 +20,9 @@ const Game = () => {
                     type="button"
                     onClick={() => jumpTo(move)}
                 >
-                    {desc}
+                    {
+                        move === selectedHistory ? <b>{desc}</b> : desc
+                    }
                 </button>
             </li>
         );

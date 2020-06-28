@@ -9,6 +9,7 @@ const useGame = () => {
     }]);
     const [stepNumber, setStepNumber] = useState(0);
     const [xIsNext, setXIsNext] = useState(true);
+    const [selectedHistory, setSelectedHistory] = useState(undefined);
 
     const handleClick = useCallback((i) => {
         const historyExist = history.slice(0, stepNumber + 1);
@@ -32,6 +33,7 @@ const useGame = () => {
     const jumpTo = useCallback((step) => {
         setStepNumber(step);
         setXIsNext((step % 2) === 0);
+        setSelectedHistory(step);
     }, []);
 
     const getStatus = useCallback(() => {
@@ -52,6 +54,7 @@ const useGame = () => {
         handleClick,
         jumpTo,
         getStatus,
+        selectedHistory,
     };
 };
 
