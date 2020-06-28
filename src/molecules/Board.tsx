@@ -11,6 +11,7 @@ const Board: React.FC<{
         const { squares, onClick } = props;
         return (
             <Square
+                key={i}
                 value={squares[i]}
                 onClick={() => onClick(i)}
             />
@@ -21,8 +22,8 @@ const Board: React.FC<{
         <div>
             {
                 // @ts-ignore
-                arrTrans(3, [...Array(9).keys()]).map((line:number[]) => (
-                    <div className="board-row">
+                arrTrans(3, [...Array(9).keys()]).map((line:number[], index:number) => (
+                    <div className="board-row" key={index}>
                         {line.map((i) => renderSquare(i))}
                     </div>
                 ))
