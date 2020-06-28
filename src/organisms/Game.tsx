@@ -21,12 +21,10 @@ const Game = () => {
                 <Button
                     type="button"
                     variant="contained"
-                    color="primary"
+                    color={move === selectedHistory ? 'secondary' : 'primary'}
                     onClick={() => jumpTo(move)}
                 >
-                    {
-                        move === selectedHistory ? <b>{desc}</b> : desc
-                    }
+                    {desc}
                 </Button>
             </li>
         );
