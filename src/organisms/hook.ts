@@ -30,12 +30,24 @@ const useGame = () => {
         setXIsNext((step % 2) === 0);
     }, []);
 
+    const getStatus = useCallback(() => {
+        const current = history[stepNumber];
+        const winner = calculateWinner(current.squares);
+
+        let status;
+        if (winner) {
+            status = `Winner: ${winner}`;
+        } else {
+            status = `Next player: ${xIsNext ? 'X' : 'O'}`;
+        }
+        return { current, status };
+    }, [history, stepNumber, xIsNext]);
+
     return {
         history,
-        stepNumber,
-        xIsNext,
         handleClick,
         jumpTo,
+        getStatus,
     };
 };
 
